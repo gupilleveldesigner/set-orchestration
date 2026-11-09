@@ -11,7 +11,7 @@ description: 현재 세션을 오케스트레이션 세션으로 전환한다. �
 
 - **Claude 데스크탑 앱의 Code 탭에서만 쓸 수 있다.** 하위 세션 관리 도구인 `mcp__ccd_session__start_session`과 `mcp__ccd_session_mgmt__list_sessions`·`get_session`·`stop_session`·`archive_session`·`unarchive_session`, 그리고 `SendMessage`가 필요하다. 터미널 CLI, IDE 확장(VS Code·JetBrains), claude.ai 웹에는 이 도구가 없다.
 - 도구 이름은 앱 버전에 따라 바뀔 수 있다. 이름이 다르면 같은 역할의 도구를 찾아 쓰고, 맞는 도구인지 확신이 없으면 사용자에게 묻는다.
-- 모든 작업을 하위 세션으로 띄우므로 세션 하나로 일할 때보다 사용량이 많이 든다.
+- 사용량은 작업 규모에 따라 다르다. 세션마다 시스템 프롬프트와 도구 정의를 새로 읽는 고정 비용, 검증하느라 같은 파일을 다시 읽는 비용이 붙는다. 그래서 작은 일이 많으면 세션 하나보다 더 든다. 길고 큰 작업은 세션마다 맥락이 작게 유지되므로 비슷하거나 덜 들 수 있다. 여러 세션이 동시에 돌면 시간당 소모가 늘어 사용 한도에 더 빨리 닿는다.
 
 ## 핵심 규칙 (원문)
 
